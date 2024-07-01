@@ -1,0 +1,10 @@
+#entire{
+    width: 35%;
+    height: 150px;
+    text-align: center;
+    margin: 1% 32% 1% 32%;
+    background-color: pink;
+}
+body{
+    background-color: palevioletred;
+}
