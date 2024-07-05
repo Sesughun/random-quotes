@@ -53,7 +53,7 @@ function App() {
           <div id="author">{quote.author}</div>
           <button
             id="new-quote"
-            className="btn btn-primary"
+            className="btn "
             onClick={() => getNewQuote(category)}
           >
             New quote
