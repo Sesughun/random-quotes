@@ -1,10 +1,18 @@
 #entire{
-    width: 35%;
-    height: 150px;
+    width: 50%;
     text-align: center;
-    margin: 1% 32% 1% 32%;
+    display: grid;
+    place-items: center;
     background-color: pink;
+    font-weight: bold;
+    font-size: larger;
+    color: white;
 }
 body{
     background-color: palevioletred;
+}
+button{
+    margin-right: 10px;
+    margin-top: 20px;
+    
 }

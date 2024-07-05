@@ -1,0 +1,76 @@
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import "bootstrap/dist/css/bootstrap.css";
+import "./App.css";
+
+function App() {
+  const [quote, setQuote] = useState({
+    text: "To go up is to go up, up up!",
+    author: "-Lan Sesughun",
+  });
+
+  function getNewQuote() {
+    axios
+      .get("https://api.api-ninjas.com/v1/quotes?category=happiness")
+      .then((res) => {
+        if (res.data && res.data.length > 0) {
+          const { text, author } = res.data[0];
+          setQuote({ text, author });
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching quote:", error);
+      });
+  }
+
+  useEffect(() => {
+    getNewQuote();
+  }, []);
+
+  return (
+    <div className="card" id="entire">
+      <div id="quote-box" className="card-body">
+        <p id="text">{quote.text}</p>
+        <div id="author">{quote.author}</div>
+        <button id="new-quote" onClick={getNewQuote}>
+          New quote
+        </button>
+        <a id="tweet-quote">Tweet</a>
+      </div>
+    </div>
+  );
+}
+
+export default App;
+
+
+import React, { useEffect } from "react";
+import axios from "axios";
+import "bootstrap/dist/css/bootstrap.css";
+import "./App.css";
+
+//https://api.api-ninjas.com/v1/quotes
+function App() {
+  function getNewQuote(e) {
+    axios
+      .get("https://api.api-ninjas.com/v1/quotes?category=happiness")
+      .then((res) => console.log(res.data));
+  }
+  useEffect(() => {}, []);
+  return (
+    <div className="card" id="entire">
+      <div id="quote-box" className="card-body">
+        <p id="text">
+          To go up is to go up, up up!To go up is to go up, up up!
+        </p>
+        <div id="author">-Lan Sesughun</div>
+        <button id="new-quote" onClick={getNewQuote}>
+          New quote
+        </button>
+        <a id="tweet-quote">Tweet</a>
+      </div>
+    </div>
+  );
+}
+
+export default App;
